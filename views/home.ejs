@@ -1,11 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>api noticias</title>
+    <title>API de Notícias</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        section {
+            padding: 20px;
+        }
+        .endpoint {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+        }
+        h2 {
+            color: #007bff;
+        }
+        pre {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .json-example {
+            background-color: #f8f9fa;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Bem vindo a API noticias</h1>
+    <header>
+        <h1>API de Notícias - MongoDB Atlas</h1>
+        <p>Esta API permite buscar, inserir, atualizar e apagar notícias em um banco de dados MongoDB Atlas.</p>
+    </header>
+
+    <section>
+        <h2>Endpoints da API</h2>
+
+        <div class="endpoint">
+            <h3>1. Buscar todas as notícias</h3>
+            <p><strong>GET:</strong> /noticias</p>
+            <p>Retorna uma lista de todas as notícias cadastradas no banco de dados.</p>
+            <pre>GET /noticias</pre>
+        </div>
+
+        <div class="endpoint">
+            <h3>2. Buscar notícia por ID</h3>
+            <p><strong>GET:</strong> /noticias/id/:id</p>
+            <p>Retorna uma notícia específica com base no ID fornecido.</p>
+            <pre>GET /noticias/id/12345</pre>
+        </div>
+
+        <div class="endpoint">
+            <h3>3. Buscar notícias por tipo</h3>
+            <p><strong>GET:</strong> /noticias/tiponoticia/:tipo</p>
+            <p>Retorna uma lista de notícias filtradas pelo tipo fornecido.</p>
+            <pre>GET /noticias/tiponoticia/politica</pre>
+        </div>
+
+        <div class="endpoint">
+            <h3>4. Inserir uma nova notícia</h3>
+            <p><strong>POST:</strong> /postnoticias</p>
+            <p>Insere uma nova notícia no banco de dados. Os dados devem ser enviados no corpo da requisição em formato JSON.</p>
+            <div class="json-example">
+                <strong>Exemplo de JSON:</strong>
+                <pre>
+{
+    "titulo": "Nova descoberta científica",
+    "conteudo": "Pesquisadores fazem uma nova descoberta em física quântica.",
+    "tipo": "ciência",
+    "data": "2025-11-25"
+}
+                </pre>
+            </div>
+            <pre>POST /postnoticias</pre>
+        </div>
+
+        <div class="endpoint">
+            <h3>5. Apagar uma notícia</h3>
+            <p><strong>DELETE:</strong> /delnoticias</p>
+            <p>Apaga uma notícia específica. O ID da notícia deve ser enviado no corpo da requisição em formato JSON.</p>
+            <div class="json-example">
+                <strong>Exemplo de JSON:</strong>
+                <pre>
+{
+    "id": "12345"
+}
+                </pre>
+            </div>
+            <pre>DELETE /delnoticias</pre>
+        </div>
+
+        <div class="endpoint">
+            <h3>6. Atualizar uma notícia</h3>
+            <p><strong>PUT:</strong> /putnoticias</p>
+            <p>Atualiza os dados de uma notícia existente. O ID da notícia e os novos dados devem ser enviados no corpo da requisição em formato JSON.</p>
+            <div class="json-example">
+                <strong>Exemplo de JSON:</strong>
+                <pre>
+{
+    "id": "12345",
+    "titulo": "Atualização da descoberta científica",
+    "conteudo": "Pesquisadores fazem uma atualização sobre a descoberta em física quântica.",
+    "tipo": "ciência",
+    "data": "2025-11-26"
+}
+                </pre>
+            </div>
+            <pre>PUT /putnoticias</pre>
+        </div>
+    </section>
 </body>
 </html>
