@@ -1,6 +1,4 @@
 const { ObjectId } = require("mongodb");
-
-const {Object}= require (Mongo)
 module.exports =(app)=>{
     app.delete("/delnoticias",async (req,res) => {
         try {
