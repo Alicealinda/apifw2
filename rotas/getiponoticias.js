@@ -1,7 +1,7 @@
 module.exports = (app) => {
     app.get("/noticias/tipo/:tiponoticia", async (req, res) => {
         try {
-            const tiponoticia = ObjectId.createFromHexString(req.params.tiponoticia)
+            const tiponoticia = req.params.tiponoticia
             await app.dbClient.connect();
             const resultado = await app.dbClient.db('portalnoticias')
                 .collection('noticias')
@@ -13,4 +13,5 @@ module.exports = (app) => {
 
         }
     })
+
 }
