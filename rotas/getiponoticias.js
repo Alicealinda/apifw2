@@ -5,7 +5,7 @@ module.exports = (app) => {
             await app.dbClient.connect();
             const resultado = await app.dbClient.db('portalnoticias')
                 .collection('noticias')
-                .find({ tiponoticia: tiponoticia })
+                .find({ tiponoticia: new RegExp(tiponoticia,'i')})
                 .toArray();
             res.json(resultado);
         } catch (error) {
@@ -15,3 +15,4 @@ module.exports = (app) => {
     })
 
 }
+
