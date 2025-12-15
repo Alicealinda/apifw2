@@ -1,9 +1,8 @@
 module.exports =(app)=>{
     app.post("/postnoticias",async (req,res) => {
-        res.send("teste")
-      /*   try {
+        try {
             const titulonoticia = req.body.titulonoticia
-            const conteudonoticia = rep.body.conteudonoticia
+            const conteudonoticia = req.body.conteudonoticia
             const tiponoticia = req.body.tiponoticia
             await app.dbClient.connect();
             const resultado =  await app.dbClient.db("portalnoticias")
@@ -16,7 +15,7 @@ module.exports =(app)=>{
         } catch (error) {
             res.status(400).send("erro ao gravar a noticias:",error)
             
-        } */
+        }
         
     })
 }
