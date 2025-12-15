@@ -1,6 +1,7 @@
 module.exports =(app)=>{
     app.post("/postnoticias",async (req,res) => {
-        try {
+        res.send("teste")
+      /*   try {
             const titulonoticia = req.body.titulonoticia
             const conteudonoticia = rep.body.conteudonoticia
             const tiponoticia = req.body.tiponoticia
@@ -15,7 +16,7 @@ module.exports =(app)=>{
         } catch (error) {
             res.status(400).send("erro ao gravar a noticias:",error)
             
-        }
+        } */
         
     })
 }
