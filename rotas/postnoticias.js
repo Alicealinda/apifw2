@@ -14,9 +14,9 @@ module.exports = (app) => {
                     tiponoticia: tiponoticia,
                     datahoracadastro: new Date()
                 })
-            res.status(200).send("noticias gravadas com sucesso!")
+            res.status(200).json("noticias gravadas com sucesso!")
         } catch (erro) {
-            res.status(400).send(erro)
+            res.status(400).json(erro)
         }
         /*  try {
          } catch (error) {
