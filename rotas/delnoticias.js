@@ -4,8 +4,8 @@ module.exports =(app)=>{
         try {
             const id = ObjectId.createFromHexString(req.body._id);
             await app.dbClient.connect();
-            const resultado =  await app.dbClient.db("portalnoticias")
-            .collecion("noticias")
+            const resultado =  await app.dbClient.db('portalnoticias')
+            .collecion('noticias')
             .deleteOne({_id:id})
             if (!resultado.deletedCount)   {
                 throw new Error("nenhuma noticia foi apagada - id nao encontrado");
