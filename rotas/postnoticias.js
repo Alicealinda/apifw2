@@ -1,10 +1,14 @@
 module.exports =(app)=>{
     app.post("/postnoticias",async (req,res) => {
-        try {
-            const titulonoticia = req.body.titulonoticia
-            const conteudonoticia = req.body.conteudonoticia
-            const tiponoticia = req.body.tiponoticia
-            await app.dbClient.connect();
+        try {const titulonoticia = req.body.titulonoticia
+        const conteudonoticia = req.body.conteudonoticia
+        const tiponoticia = req.body.tiponoticia
+        await app.dbClient.connect();
+        res.send("ola")
+        }catch(erro){
+            res.status(400).send(erro)
+        }
+       /*  try {
             const resultado =  await app.dbClient.db("portalnoticias")
             .collecion("noticias")
             .insertOne({titulonoticia:titulonoticia,
@@ -15,7 +19,7 @@ module.exports =(app)=>{
         } catch (error) {
             res.status(400).send("erro ao gravar a noticias:",error)
             
-        }
+        } */
         
     })
 }
